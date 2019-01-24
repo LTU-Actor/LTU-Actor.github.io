@@ -6,13 +6,12 @@
 - Sean Bleicher <sbleicher@ltu.edu>
 - Charles Faulkner <cfaulkner@ltu.edu>
 
-## Inital Steps & Dates
+## Initial Steps & Dates
 
- 1. Test current code (Dec 2018) on new computers before the weather gets bad
+ 1. Test current code (from Dec 2018) on new computers
  2. Present current software for RTK status update (early Feb.)
- 3. Finalize wiring (remove seats)
+ 3. Finalize wiring (remove seats for better access)
  4. Make poster for LTU Research Day (April 5)
- 5. Begin paper drafting
 
 ## Meeting Times
 
@@ -25,6 +24,7 @@
 
 #### Notes
 
+- RTK is a very large section, shown as a disproportionally small box
 - All packages will target ROS Kinetic on Ubuntu 16.04 LTS
 - Image processing nodes will use OpenCV 3 (default as of Kinetic)
 - Route system will use Lua5.3
@@ -37,9 +37,9 @@
   from a file. The route system will mark way points as done once it has both
   gotten within a minimum distance, and when that distance has reached a local
   minima.
-- The sections of code in the route system should be fully modular and not
-  stored in the GitHub repository. All RTK additions to the route system could
-  be distributed in a single git patch file.
+- The sections of restricted code in the route system should be fully modular
+  and not stored in the GitHub repository. All RTK additions to the route
+  system could be distributed in a single git patch file.
 - The web page will use [`Next.js`](https://nextjs.org/) and will communicate
   with ROS with [`roslibjs`](https://github.com/RobotWebTools/roslibjs), and
   will have access to all video topics with
@@ -81,17 +81,17 @@
 | ------- | -------------- |
 | Mitch   | 5              |
 | Charles | 7              |
-| Sean    | 9              |
+| Sean    | 6              |
 
 | Package                     | Owner   | Notes                                |
 | --------------------------- | ------- | ------------------------------------ |
 | Core                        | Mitch   | Route, web-page, sub-repo packages   |
 | eStop                       | Mitch   |                                      |
 | AdapParameter               | Mitch   |                                      |
-| Sensor-Autoliv-Radar        | Sean    |                                      |
-| Input-Process-Cam-Adjust    | Charles |                                      |
-| Input-Process-Canny         | Mitch   | May be included in AdapParameter     |
-| Input-Process-Threshold     | Mitch   | May be included in AdapParameter     |
+| Sensor-AutolivRadar         | Sean    |                                      |
+| InputProcess-CamAdjust      | Charles |                                      |
+| InputProcess-Canny          | Mitch   | May be included in AdapParameter     |
+| InputProcess-Threshold      | Mitch   | May be included in AdapParameter     |
 | Route-Blob                  | Charles |                                      |
 | Route-Joystick              | Sean    |                                      |
 | Route-StopSign              | Charles |                                      |
@@ -101,10 +101,7 @@
 | Route-Obstacle              | Sean    |                                      |
 | Route-StopLine              | Charles |                                      |
 | Route-OneWay                | Charles |                                      |
-| Route-StopSignNN            | Sean    | Neural network version               |
-| Route-OneWayNN              | Sean    | Neural network version               |
-| Route-PotholeNN             | Sean    | Neural network version               |
-| Route-StopLineNN            | Sean    | Neural network version               |
+| Route-NeuralDetect          | Sean    | Neural network sign & object detect  |
 | Vehicle-GEM                 | ALL     |                                      |
 | Vehicle-L2Bot               | ALL     |                                      |
 | Vehicle-EduBot              | Sean    |                                      |
@@ -115,31 +112,26 @@ computer, all that will need to be done is a recursive clone of Core.
 
 ## Package Guidelines
 
-- Use [clang-format](https://clang.llvm.org/docs/ClangFormat.html)
-- Use a
-  [build.py](https://github.com/LTU-Actor/Adaptable-Parameter-Server/blob/master/build.py)
-  for complex packages to help with standalone development
-  - It is bad to need the whole vehicle running to easily test individual nodes
-  - Include launch scripts and sample data for testing that don't need any
-    outside packages that are not in the rosdeps
+- Use [clang-format](https://clang.llvm.org/docs/ClangFormat.html).
 - Configure nodes with ROS parameters to set options that don't need to be
-  tweaked like subscribed topic names
-- Use dynamic reconfigure
+  tweaked like subscribed topic names.
+- Use dynamic reconfigure.
 - Store documentation with the repository files. Upload images (and other
-  binary assets) with [git LFS](https://git-lfs.github.com/)
-  - Create documentation in markdown when possible so changes can be tracked
+  binary assets) with [git LFS](https://git-lfs.github.com/).
+  - Create documentation in markdown when possible so changes can be tracked.
   - Keep the README short and simple, with a couple pictures that help explain
-    the node
-  - List input topics (and parameters to configure them), and output topics in the
-    README
+    the node.
+  - List input topics (and parameters to configure them), and output topics in
+    the README.
 - Keep all ROS dependencies updated so [`rosdep`](http://wiki.ros.org/rosdep)
-  works
-- Prefix GitHub package names with their subsystem
+  works.
+- Prefix GitHub package names with their subsystem.
   - `Sensor-` for sensor nodes
-  - `Input-Process-` for input processing nodes
+  - `InputProcess-` for input processing nodes
   - `Route-` for route input nodes
   - `Vehicle-` for robot platforms
 - Each package should be owned by one person who does most of the work and
-  documentation
+  documentation.
+- Nodes should check if they have subscribers, and only do work when necessary.
 
-[sysdiag]: https://media.githubusercontent.com/media/LTU-Actor/LTU-Actor.github.io/master/assets/system_diagram.svg
+[sysdiag]: https://media.githubusercontent.com/media/LTU-Actor/LTU-Actor.github.io/fa3a36328e18626678b23ffdcba7c4e239e370fc/assets/system_diagram.svg
