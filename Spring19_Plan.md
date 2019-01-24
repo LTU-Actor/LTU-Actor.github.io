@@ -27,7 +27,7 @@
 - RTK is a very large section, shown as a disproportionally small box
 - All packages will target ROS Kinetic on Ubuntu 16.04 LTS
 - Image processing nodes will use OpenCV 3 (default as of Kinetic)
-- Route system will use Lua5.3
+- Route system will use Lua5.2
 - Nodes in orange are marked for generalization. These packages will be put in
   their own git repository in a new GitHub organization named LTU-Actor.
 - The route input nodes will be unaware of the eStop button state.
