@@ -9,7 +9,7 @@ Autonomous Campus Taxi framework. Currently we are using
 [ROS](http://www.ros.org/) (Robot Operating System) on a [Polaris GEM
 e2](http://www.polaris.com/en-us/gem-electric-car/e2)
 
-<div style="position: relative;padding-bottom: 56.25%;padding-top: 25px;height: 0;"><iframe style="position: absolute;top: 0;left: 0;width: 100%;height: 100%;" src="https://www.youtube-nocookie.com/embed/x2pskuYjvCI" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></div>
+{% include youtubePlayer.html id=x2pskuYjvCI %}
 
 *ACTor completion various tasks during the 2018 [IGVC](http://www.igvc.org/) competition*
 
