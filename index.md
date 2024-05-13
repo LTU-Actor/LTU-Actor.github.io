@@ -1,3 +1,14 @@
+<!DOCTYPE html>
+<meta charset="utf-8">
+<title>Redirecting to https://www.ltu.edu/arts-sciences/research/labs/car</title>
+<meta http-equiv="refresh" content="0; URL=https://www.ltu.edu/arts-sciences/research/labs/car">
+<link rel="canonical" href="https://www.ltu.edu/arts-sciences/research/labs/car">
+
+>LTU ACTor details are now hosted and updated by Lawrence Tech Univ.
+
+## :sparkle: Latest Publications @ [CAR (CS & AI Robotics) Lab](https://www.ltu.edu/arts-sciences/research/labs/car) :sparkle:
+
+
 {% include youtubePlayer.html id="x2pskuYjvCI" %}
 *ACTor completion various tasks during the 2018 [IGVC](http://www.igvc.org/) competition*
 
